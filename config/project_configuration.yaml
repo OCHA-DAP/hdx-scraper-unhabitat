@@ -1,0 +1,49 @@
+# Collector specific configuration
+datasets:
+  green_areas:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/7476ba9ab3fa45ebb683e253a3688997/data"
+    headers:
+      - "SeriesDescription"
+      - "GeoAreaCode"
+      - "GeoAreaName"
+      - "Cities"
+      - "TimePeriod"
+      - "Value"
+      - "Units"
+      - "Source"
+      - "FootNote"
+    country_header: "GeoAreaName"
+    date_header: "TimePeriod"
+    title: "country - Open spaces and green areas"
+    notes: "Data on estimated share of urban population within 400 meters walking distance along the street network to an open public space."
+    tags:
+      - "topography"
+      - "urban"
+    filename: "SDG_11_7_1"
+
+countries:
+  - AFG
+  - BFA
+  - CAF
+  - CMR
+  - COD
+  - COL
+  - ETH
+  - GTM
+  - HND
+  - HTI
+  - MLI
+  - MMR
+  - MOZ
+  - NER
+  - NGA
+  - PSE
+  - SDN
+  - SLV
+  - SOM
+  - SSD
+  - SYR
+  - TCD
+  - UKR
+  - VEN
+  - YEM

@@ -19,6 +19,7 @@ datasets:
     tags:
       - "topography"
       - "urban"
+      - "sustainable development goals-sdg"
     filename: "SDG_11_7_1"
 
 countries:

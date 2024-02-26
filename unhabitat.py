@@ -29,7 +29,12 @@ class UNHabitat:
         for dataset_name in self.configuration["datasets"]:
             dataset_info = self.configuration["datasets"][dataset_name]
             base_url = dataset_info["base_url"]
-            headers, iterator = self.retriever.get_tabular_rows(base_url, format="xlsx", dict_form=True)
+            headers, iterator = self.retriever.get_tabular_rows(
+                base_url,
+                format="xlsx",
+                dict_form=True,
+                encoding="utf-8"
+            )
 
             for row in iterator:
                 row = {key: row[key] for key in row if key in dataset_info["headers"]}
@@ -71,14 +76,15 @@ class UNHabitat:
         filename = f"{dataset_info['filename']}_{country_iso3}.csv"
         resourcedata = {
             "name": filename,
-            "description": "",
+            "description": dataset_info["notes"],
         }
         dataset.generate_resource_from_rows(
-            self.folder,
-            filename,
-            rows,
-            resourcedata,
-            list(rows[0].keys()),
+            folder=self.folder,
+            filename=filename,
+            rows=rows,
+            resourcedata=resourcedata,
+            headers=list(rows[0].keys()),
+            encoding="utf-8",
         )
 
         return dataset

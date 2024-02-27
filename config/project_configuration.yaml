@@ -15,7 +15,8 @@ datasets:
     country_header: "GeoAreaName"
     date_header: "TimePeriod"
     title: "country - Open spaces and green areas"
-    notes: "Data on estimated share of urban population within 400 meters walking distance along the street network to an open public space."
+    notes: "An open public space (OPS) is defined as an area that openly and freely accessible space for all (without any cost implication) for enjoyment of social services such as recreation. Identification of open public spaces is based on data compiled from city land use plans and open sources including OpenStreetMap and GoogleEarth; Data used to estimate population with access to open public spaces is based on grid level population disaggregation directly from city/country data, or from the HRSL (facebook and CIESIN) and WorldPop;  City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition. As a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundaries. Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    resource_notes: "Average share of the built-up area of cities that is open space for public use for all (%)"
     tags:
       - "topography"
       - "urban"

@@ -76,7 +76,7 @@ class UNHabitat:
         filename = f"{dataset_info['filename']}_{country_iso3}.csv"
         resourcedata = {
             "name": filename,
-            "description": dataset_info["notes"],
+            "description": dataset_info["resource_notes"],
         }
         dataset.generate_resource_from_rows(
             folder=self.folder,

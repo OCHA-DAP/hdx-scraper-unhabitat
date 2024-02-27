@@ -20,43 +20,51 @@ from unhabitat import UNHabitat
 
 class TestUNHabitat:
     dataset = {
-        'name': 'green-areas-afg',
-        'title': 'Afghanistan - Open spaces and green areas',
-        'notes': 'Data on estimated share of urban population within 400 meters walking distance along the street '
-                 'network to an open public space.',
-        'dataset_date': '[2020-01-01T00:00:00 TO 2020-12-31T23:59:59]',
-        'groups': [{'name': 'afg'}],
-        'tags': [
-            {'name': 'topography', 'vocabulary_id': 'b891512e-9516-4bf5-962a-7a289772a2a1'},
-            {'name': 'urban', 'vocabulary_id': 'b891512e-9516-4bf5-962a-7a289772a2a1'},
-            {'name': 'sustainable development goals-sdg', 'vocabulary_id': 'b891512e-9516-4bf5-962a-7a289772a2a1'},
+        "name": "green-areas-afg",
+        "title": "Afghanistan - Open spaces and green areas",
+        "notes": "An open public space (OPS) is defined as an area that openly and freely accessible space for all "
+                 "(without any cost implication) for enjoyment of social services such as recreation. Identification "
+                 "of open public spaces is based on data compiled from city land use plans and open sources including "
+                 "OpenStreetMap and GoogleEarth; Data used to estimate population with access to open public spaces is "
+                 "based on grid level population disaggregation directly from city/country data, or from the HRSL "
+                 "(facebook and CIESIN) and WorldPop;  City/urban area used in the analyis has been generated using a "
+                 "classification approach based on the Degree of Urbanization concept to city definition. As a result, "
+                 "the urban/city area used for the indicator computation in this data table may be larger or smaller "
+                 "than the official municipality boundaries. Designation and data provided by the country and compiled "
+                 "by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the "
+                 "part of the Secretariat of the United Nations concerning the legal status of any country, territory, "
+                 "city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries.",
+        "dataset_date": "[2020-01-01T00:00:00 TO 2020-12-31T23:59:59]",
+        "groups": [{"name": "afg"}],
+        "tags": [
+            {"name": "topography", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
+            {"name": "urban", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
+            {"name": "sustainable development goals-sdg", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
         ],
-        'package_creator': 'briar-mills',
-        'dataset_source': 'UNHabitat',
-        'owner_org': 'unhabitat-das',
-        'maintainer': 'denmwa02',
-        'data_update_frequency': '365',
-        'license_id': 'hdx-pddl',
-        'methodology': 'Other',
-        'methodology_other': 'Urban statistics are collected through household surveys and censuses conducted by '
-                             'national statistics authorities. Global Urban Observatory team analyses and compiles '
-                             'urban indicators statistics from surveys and censuses. Additionally, Local urban '
-                             'observatories collect, compile and analyze urban data for national policy development. '
-                             'Population statistics are produced by the United Nations Department of Economic and '
-                             'Social Affairs, World Urbanization Prospects.',
-        'caveats': 'Read more at https://unhabitat.org/knowledge/data-and-analytics',
-        'subnational': '1',
-        'private': False,
+        "package_creator": "briar-mills",
+        "dataset_source": "UNHabitat",
+        "owner_org": "unhabitat-das",
+        "maintainer": "denmwa02",
+        "data_update_frequency": "365",
+        "license_id": "hdx-pddl",
+        "methodology": "Other",
+        "methodology_other": "Urban statistics are collected through household surveys and censuses conducted by "
+                             "national statistics authorities. Global Urban Observatory team analyses and compiles "
+                             "urban indicators statistics from surveys and censuses. Additionally, Local urban "
+                             "observatories collect, compile and analyze urban data for national policy development. "
+                             "Population statistics are produced by the United Nations Department of Economic and "
+                             "Social Affairs, World Urbanization Prospects.",
+        "caveats": "Read more at https://unhabitat.org/knowledge/data-and-analytics",
+        "subnational": "1",
+        "private": False,
     }
 
     resource = {
-        'name': 'SDG_11_7_1_AFG.csv',
-        'description': 'Data on estimated share of urban population within 400 meters '
-                       'walking distance along the street network to an open public '
-                       'space.',
-        'format': 'csv',
-        'resource_type': 'file.upload',
-        'url_type': 'upload',
+        "name": "SDG_11_7_1_AFG.csv",
+        "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
+        "format": "csv",
+        "resource_type": "file.upload",
+        "url_type": "upload",
     }
 
     @pytest.fixture(scope="function")

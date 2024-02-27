@@ -4,8 +4,6 @@ owner_org: "unhabitat-das"
 maintainer: "denmwa02"
 data_update_frequency: "365"
 license_id: "hdx-pddl"
-methodology: "Other"
-methodology_other: "Urban statistics are collected through household surveys and censuses conducted by national statistics authorities. Global Urban Observatory team analyses and compiles urban indicators statistics from surveys and censuses. Additionally, Local urban observatories collect, compile and analyze urban data for national policy development. Population statistics are produced by the United Nations Department of Economic and Social Affairs, World Urbanization Prospects."
 caveats: "Read more at https://unhabitat.org/knowledge/data-and-analytics"
 subnational: "1"
 private: False

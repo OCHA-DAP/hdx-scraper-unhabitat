@@ -62,6 +62,8 @@ class UNHabitat:
             title = dataset_info["title"].replace("country", country_name)
         dataset = Dataset({"name": slugify(dataset_name), "title": title})
         dataset["notes"] = dataset_info["notes"]
+        dataset["methodology"] = "Other"
+        dataset["methodology_other"] = dataset_info["methodology"]
         dataset.set_time_period_year_range(
             min(self.dates[dataset_name]),
             max(self.dates[dataset_name]),

@@ -10,7 +10,10 @@ import logging
 
 from hdx.data.dataset import Dataset
 from hdx.location.country import Country
-from hdx.utilities.dictandlist import dict_of_lists_add
+from hdx.utilities.dictandlist import dict_of_lists_add, write_list_to_csv
+from hdx.data.resource import Resource
+from os.path import join
+from pandas import DataFrame, ExcelWriter
 from slugify import slugify
 
 logger = logging.getLogger(__name__)
@@ -75,18 +78,33 @@ class UNHabitat:
         dataset.add_tags(dataset_info["tags"])
 
         rows = self.data[dataset_name]
-        filename = f"{dataset_info['filename']}_{country_iso3}.csv"
-        resourcedata = {
-            "name": filename,
-            "description": dataset_info["resource_notes"],
-        }
-        dataset.generate_resource_from_rows(
-            folder=self.folder,
-            filename=filename,
-            rows=rows,
-            resourcedata=resourcedata,
-            headers=list(rows[0].keys()),
-            encoding="utf-8",
-        )
-
+        self.generate_resource(dataset, country_iso3, rows, dataset_info, "csv")
+        self.generate_resource(dataset, country_iso3, rows, dataset_info, "xlsx")
         return dataset
+
+    def generate_resource(self, dataset, country_iso3, rows, dataset_info, file_format):
+        headers = list(rows[0].keys())
+        filename = f"{dataset_info['filename']}_{country_iso3}"
+        filepath = join(self.folder, f"{filename}.{file_format}")
+        resource = Resource(
+            {
+                "name": f"{filename} ({file_format})",
+                "description": dataset_info["resource_notes"],
+            }
+        )
+        if file_format == "csv":
+            write_list_to_csv(filepath, rows, columns=headers, encoding="utf-8")
+        if file_format == "xlsx":
+            df = DataFrame(rows)
+            writer = ExcelWriter(filepath, engine="xlsxwriter")
+            df.to_excel(writer, sheet_name=filename, index=False)
+            workbook = writer.book
+            worksheet = writer.sheets[filename]
+            num_format = workbook.add_format({"num_format": "0.0"})
+            worksheet.set_column(headers.index("Value"), headers.index("Value"), None, num_format)
+            writer.close()
+
+        resource.set_format(file_format)
+        resource.set_file_to_upload(filepath)
+        dataset.add_update_resource(resource)
+        return resource

@@ -4,6 +4,7 @@ Unit tests for unhabitat.
 
 """
 from os.path import join
+from pandas import read_excel, testing
 
 import pytest
 from hdx.api.configuration import Configuration
@@ -55,10 +56,17 @@ class TestUNHabitat:
         "private": False,
     }
 
-    resource = {
-        "name": "SDG_11_7_1_AFG.csv",
+    resource_csv = {
+        "name": "SDG_11_7_1_AFG (csv)",
         "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
         "format": "csv",
+        "resource_type": "file.upload",
+        "url_type": "upload",
+    }
+    resource_xlsx = {
+        "name": "SDG_11_7_1_AFG (xlsx)",
+        "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
+        "format": "xlsx",
         "resource_type": "file.upload",
         "url_type": "upload",
     }
@@ -106,6 +114,12 @@ class TestUNHabitat:
                 dataset.update_from_yaml()
                 assert dataset == self.dataset
                 resources = dataset.get_resources()
-                assert resources[0] == self.resource
+                assert resources[0] == self.resource_csv
                 file = "SDG_11_7_1_AFG.csv"
                 assert_files_same(join("tests", "fixtures", file), join(folder, file))
+                assert resources[1] == self.resource_xlsx
+                file = "SDG_11_7_1_AFG.xlsx"
+                testing.assert_frame_equal(
+                    read_excel(join("tests", "fixtures", file)),
+                    read_excel(join(folder, file)),
+                )

@@ -27,6 +27,90 @@ datasets:
       - "sustainable development goals-sdg"
     filename: "SDG_11_7_1"
 
+  urban_transport:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/f566f11d1d9842f6a253b6890e31d10c/data"
+    headers:
+      - "SeriesDescription"
+      - "GeoAreaCode"
+      - "GeoAreaName"
+      - "Cities"
+      - "TimePeriod"
+      - "Value"
+      - "Units"
+      - "Source"
+      - "FootNote"
+    country_header: "GeoAreaName"
+    date_header: "TimePeriod"
+    value_header:
+      - "Value"
+    format: "xlsx"
+    title: "country - Urban transport"
+    notes: "Only public transport stops which are mapped are included in the analysis which may include both formal and informal stops. Many cities have an informal network which is not fully mapped and may thus record higher levels of access to public transport than reported here; Data on public transport stops is sourced from city maps, OSM, GTFS, UITP, Google, and point mapping in some cities; Data used to estimate population with access to public transport is based on grid level population disaggregation directly from city/country data, HRSL (Facebook and CIESIN), WorldPop or GHS-Pop; City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition. As a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundaries.  Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-02-01.pdf"
+    resource_notes: "Proportion of population that has convenient access to public transport (%)"
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+      - "transportation"
+    filename: "SDG_11_2_1"
+
+  urban_environment:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
+    header: 3
+    headers:
+      - "Country"
+      - "Subnational Regions"
+      - "Data Units"
+      - "2015"
+      - "2016"
+      - "2017"
+      - "2018"
+      - "2019"
+    country_header: "Country"
+    value_header:
+      - "2015"
+      - "2016"
+      - "2017"
+      - "2018"
+      - "2019"
+    date_min: 2015
+    date_max: 2019
+    format: "xls"
+    title: "country - Urban environment and quality of life"
+    notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
+    methodology: "See dataset page at https://data.unhabitat.org/pages/urban-environment-and-quality-of-life"
+    resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
+    tags:
+      - "urban"
+      - "environment"
+    filename: "Mean_Population_Exposure_to_PM2.5"
+
+  spatial_growth_cities:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/41cdb91c7ae44695b443f375bb1593ed/data"
+    headers:
+      - "SeriesDescription"
+      - "GeoAreaCode"
+      - "GeoAreaName"
+      - "Cities"
+      - "TimePeriod"
+      - "Time_Detail"
+      - "Value"
+      - "Units"
+      - "Source"
+      - "FootNote"
+    country_header: "GeoAreaName"
+    date_header: "TimePeriod"
+    format: "xlsx"
+    title: "country - Spatial growth of cities and urban areas"
+    notes: "City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition. As a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundaries.  Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-03-01.pdf"
+    resource_notes: "Ratio of land consumption rate to population growth rate"
+    tags:
+      - "urban"
+      - "population"
+      - "sustainable development goals-sdg"
+    filename: "SDG_11_3_1"
+
 countries:
   - AFG
   - BFA

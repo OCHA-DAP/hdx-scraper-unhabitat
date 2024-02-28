@@ -110,7 +110,7 @@ class UNHabitat:
             df = DataFrame(rows)
             writer = ExcelWriter(filepath, engine="xlsxwriter")
             df.to_excel(writer, sheet_name=filename[:24], index=False)
-            if dataset_info["value_header"]:
+            if dataset_info.get("value_header"):
                 workbook = writer.book
                 worksheet = writer.sheets[filename[:24]]
                 num_format = workbook.add_format({"num_format": "0.0"})

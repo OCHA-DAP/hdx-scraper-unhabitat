@@ -28,8 +28,10 @@ class UNHabitat:
         self.data = {}
         self.dates = {}
 
-    def get_data(self):
-        for dataset_name in self.configuration["datasets"]:
+    def get_data(self, datasets=None):
+        if not datasets:
+            datasets = self.configuration["datasets"]
+        for dataset_name in datasets:
             dataset_info = self.configuration["datasets"][dataset_name]
             base_url = dataset_info["base_url"]
             headers, iterator = self.retriever.get_tabular_rows(

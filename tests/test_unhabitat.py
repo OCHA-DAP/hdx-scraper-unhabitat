@@ -104,7 +104,7 @@ class TestUNHabitat:
             with Download() as downloader:
                 retriever = Retrieve(downloader, folder, fixtures, folder, False, True)
                 unhabitat = UNHabitat(configuration, retriever, folder, ErrorsOnExit())
-                dataset_names = unhabitat.get_data()
+                dataset_names = unhabitat.get_data(datasets=["green_areas"])
                 assert dataset_names == [
                     {"name": "green_areas_AFG"},
                     {"name": "green_areas_world"},

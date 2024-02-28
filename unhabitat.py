@@ -36,7 +36,8 @@ class UNHabitat:
             base_url = dataset_info["base_url"]
             headers, iterator = self.retriever.get_tabular_rows(
                 base_url,
-                format="xlsx",
+                headers=dataset_info.get("header", 1),
+                format=dataset_info.get("format"),
                 dict_form=True,
                 encoding="utf-8"
             )
@@ -100,10 +101,12 @@ class UNHabitat:
             df = DataFrame(rows)
             writer = ExcelWriter(filepath, engine="xlsxwriter")
             df.to_excel(writer, sheet_name=filename, index=False)
-            workbook = writer.book
-            worksheet = writer.sheets[filename]
-            num_format = workbook.add_format({"num_format": "0.0"})
-            worksheet.set_column(headers.index("Value"), headers.index("Value"), None, num_format)
+            if dataset_info["value_header"]:
+                workbook = writer.book
+                worksheet = writer.sheets[filename]
+                num_format = workbook.add_format({"num_format": "0.0"})
+                for header in dataset_info["value_header"]:
+                    worksheet.set_column(headers.index(header), headers.index(header), None, num_format)
             writer.close()
 
         resource.set_format(file_format)

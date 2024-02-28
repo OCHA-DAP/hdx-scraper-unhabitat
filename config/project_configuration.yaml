@@ -14,6 +14,9 @@ datasets:
       - "FootNote"
     country_header: "GeoAreaName"
     date_header: "TimePeriod"
+    value_header:
+      - "Value"
+    format: "xlsx"
     title: "country - Open spaces and green areas"
     notes: "An open public space (OPS) is defined as an area that openly and freely accessible space for all (without any cost implication) for enjoyment of social services such as recreation. Identification of open public spaces is based on data compiled from city land use plans and open sources including OpenStreetMap and GoogleEarth; Data used to estimate population with access to open public spaces is based on grid level population disaggregation directly from city/country data, or from the HRSL (facebook and CIESIN) and WorldPop;  City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition. As a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundaries. Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"

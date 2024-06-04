@@ -22,7 +22,7 @@ datasets:
       - "Average share of the built-up area of cities that is open space for public use for all (%) [a]"
       - "Average share of urban population with convenient access to open public spaces (%) [b]"
     format: "xlsx"
-    title: "country - Open spaces and green areas"
+    title: "Open spaces and green areas"
     notes: "Calculated as the proportion of urban area allocated to streets and open public spaces - based on the National Register of Boundaries (PRG) WorldPop Database and Open Street Map Topographic Objects Database (BDOT10k). An open public space (OPS) is defined as an area that is openly and freely accessible space for all (without any cost implication) for enjoyment of social services such as recreation; Population with convenient access to open public spaces is the percentage share of urban population who can access an open public space within a walking distance of 400 meters along the street network. Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"
     resource_notes: "Average share of the built-up area of cities that is open space for public use for all (%)"
@@ -52,7 +52,7 @@ datasets:
     value_header:
       - "Share of urban population with convenient access to public transport (%)"
     format: "xlsx"
-    title: "country - Urban transport"
+    title: "Urban transport"
     notes: "Only public transport stops which are mapped are included in the analysis which may include both formal and informal stops. Many cities have an informal network which is not fully mapped and may thus record higher levels of access to public transport than reported here. Data on public transport stops is sourced from city maps, OSM, GTFS, UITP, Google, and point mapping in some cities. Data used to estimate population with access to public transport is based on grid level population disaggregation directly from city/country data, High Resolution Settlement Layer - HRSL (Facebook Connectivity Lab and CIESIN), WorldPop or GHS-Pop. City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition  - as a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundary.  Designation and data estimated by UN-Habitat based on the global indicator methodology. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-02-01.pdf"
     resource_notes: "Share of urban population with convenient access to public transport (%)"
@@ -84,7 +84,7 @@ datasets:
     date_min: 2015
     date_max: 2019
     format: "xls"
-    title: "country - Urban environment and quality of life"
+    title: "Urban environment and quality of life"
     notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
     methodology: "See dataset page at https://data.unhabitat.org/pages/urban-environment-and-quality-of-life"
     resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
@@ -109,7 +109,7 @@ datasets:
     country_header: "GeoAreaName"
     date_header: "TimePeriod"
     format: "xlsx"
-    title: "country - Spatial growth of cities and urban areas"
+    title: "Spatial growth of cities and urban areas"
     notes: "City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition. As a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundaries.  Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-03-01.pdf"
     resource_notes: "Ratio of land consumption rate to population growth rate"
@@ -118,6 +118,22 @@ datasets:
       - "population"
       - "sustainable development goals-sdg"
     filename: "SDG_11-3-1"
+
+  housing_slums:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/db372d6e417d410ba6ee14be199e568b/data"
+    format: "xlsx"
+    date_min: 2000
+    date_max: 2020
+    title: "Housing, slums and informal settlements"
+    notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations."
+    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf"
+    resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
+    tags:
+      - "urban"
+      - "population"
+      - "sustainable development goals-sdg"
+    filename: "Slum_Estimates_2000-2020"
+    global: True
 
 countries:
   - AFG

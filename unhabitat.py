@@ -27,6 +27,7 @@ class UNHabitat:
         self.errors = errors
         self.data = {}
         self.dates = {}
+        self.files = {}
 
     def get_data(self, datasets=None):
         if not datasets:
@@ -34,6 +35,16 @@ class UNHabitat:
         for dataset_name in datasets:
             dataset_info = self.configuration["datasets"][dataset_name]
             base_url = dataset_info["base_url"]
+            if dataset_info.get("global"):
+                file_path = self.retriever.download_file(
+                    base_url,
+                    filename=f"{dataset_info['filename']}.{dataset_info['format']}",
+                )
+                self.files[dataset_name] = file_path
+                dict_of_sets_add(self.dates, dataset_name, dataset_info["date_min"])
+                dict_of_sets_add(self.dates, dataset_name, dataset_info["date_max"])
+                continue
+
             headers, iterator = self.retriever.get_tabular_rows(
                 base_url,
                 headers=dataset_info.get("header", 1),
@@ -64,17 +75,21 @@ class UNHabitat:
                     dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_min"])
                     dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_max"])
 
-        return [{"name": dataset_name} for dataset_name in sorted(self.data)]
+        return [{"name": dataset_name} for dataset_name in sorted(self.data)] + [{"name": dataset_name} for dataset_name in sorted(self.files)]
 
     def generate_dataset(self, dataset_name):
-        dataset_info = self.configuration["datasets"][dataset_name.rsplit("_", 1)[0]]
-        iso3 = dataset_name.rsplit("_", 1)[1]
+        if dataset_name in self.files:
+            dataset_info = self.configuration["datasets"][dataset_name]
+            iso3 = "world"
+        else:
+            dataset_info = self.configuration["datasets"][dataset_name.rsplit("_", 1)[0]]
+            iso3 = dataset_name.rsplit("_", 1)[1]
         if iso3 == "world":
             country_name = "world"
-            title = dataset_info["title"].replace("country - ", "")
+            title = dataset_info["title"]
         else:
             country_name = Country.get_country_name_from_iso3(iso3)
-            title = dataset_info["title"].replace("country", country_name)
+            title = f"{country_name} - {dataset_info['title']}"
         dataset = Dataset({"name": slugify(dataset_name), "title": title})
         dataset["notes"] = dataset_info["notes"]
         dataset["methodology"] = "Other"
@@ -89,34 +104,42 @@ class UNHabitat:
             dataset.add_country_location(country_name)
         dataset.add_tags(dataset_info["tags"])
 
+        filepath = self.files.get(dataset_name)
+        if filepath:
+            self.generate_resource(dataset, dataset_info, dataset_info["format"], filepath=filepath)
+            return dataset
+
         rows = self.data[dataset_name]
-        self.generate_resource(dataset, iso3, rows, dataset_info, "csv")
-        self.generate_resource(dataset, iso3, rows, dataset_info, "xlsx")
+        self.generate_resource(dataset, dataset_info, "csv", iso3=iso3, rows=rows)
+        self.generate_resource(dataset, dataset_info, "xlsx", iso3=iso3, rows=rows)
         return dataset
 
-    def generate_resource(self, dataset, iso3, rows, dataset_info, file_format):
-        headers = list(rows[0].keys())
-        filename = f"{dataset_info['filename']}_{iso3}"
-        filepath = join(self.folder, f"{filename}.{file_format}")
+    def generate_resource(self, dataset, dataset_info, file_format, iso3=None, rows=None, filepath=None):
+        if filepath:
+            filename = dataset_info["filename"]
+        if rows:
+            headers = list(rows[0].keys())
+            filename = f"{dataset_info['filename']}_{iso3}"
+            filepath = join(self.folder, f"{filename}.{file_format}")
+            if file_format == "csv":
+                write_list_to_csv(filepath, rows, columns=headers, encoding="utf-8")
+            if file_format == "xlsx":
+                df = DataFrame(rows)
+                writer = ExcelWriter(filepath, engine="xlsxwriter")
+                df.to_excel(writer, sheet_name=filename[:24], index=False)
+                if dataset_info.get("value_header"):
+                    workbook = writer.book
+                    worksheet = writer.sheets[filename[:24]]
+                    num_format = workbook.add_format({"num_format": "0.0"})
+                    for header in dataset_info["value_header"]:
+                        worksheet.set_column(headers.index(header), headers.index(header), None, num_format)
+                writer.close()
         resource = Resource(
             {
                 "name": f"{filename} ({file_format})",
                 "description": dataset_info["resource_notes"],
             }
         )
-        if file_format == "csv":
-            write_list_to_csv(filepath, rows, columns=headers, encoding="utf-8")
-        if file_format == "xlsx":
-            df = DataFrame(rows)
-            writer = ExcelWriter(filepath, engine="xlsxwriter")
-            df.to_excel(writer, sheet_name=filename[:24], index=False)
-            if dataset_info.get("value_header"):
-                workbook = writer.book
-                worksheet = writer.sheets[filename[:24]]
-                num_format = workbook.add_format({"num_format": "0.0"})
-                for header in dataset_info["value_header"]:
-                    worksheet.set_column(headers.index(header), headers.index(header), None, num_format)
-            writer.close()
 
         resource.set_format(file_format)
         resource.set_file_to_upload(filepath)

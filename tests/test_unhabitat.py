@@ -20,7 +20,7 @@ from unhabitat import UNHabitat
 
 
 class TestUNHabitat:
-    dataset = {
+    dataset_green_areas = {
         "name": "green-areas-afg",
         "title": "Afghanistan - Open spaces and green areas",
         "notes": "Calculated as the proportion of urban area allocated to streets and open public spaces - based on "
@@ -54,16 +54,47 @@ class TestUNHabitat:
         "private": False,
     }
 
-    resource_csv = {
+    resource_green_areas_csv = {
         "name": "SDG_11-7-1_AFG (csv)",
         "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
         "format": "csv",
         "resource_type": "file.upload",
         "url_type": "upload",
     }
-    resource_xlsx = {
+    resource_green_areas_xlsx = {
         "name": "SDG_11-7-1_AFG (xlsx)",
         "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
+        "format": "xlsx",
+        "resource_type": "file.upload",
+        "url_type": "upload",
+    }
+
+    dataset_housing_slums = {
+        "name": "housing-slums",
+        "title": "Housing, slums and informal settlements",
+        "notes": "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations.",
+        "methodology": "Other",
+        "methodology_other": "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf",
+        "dataset_date": "[2000-01-01T00:00:00 TO 2020-12-31T23:59:59]",
+        "groups": [{"name": "world"}],
+        "tags": [
+            {"name": "urban", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
+            {"name": "sustainable development goals-sdg", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"}
+        ],
+        "package_creator": "briar-mills",
+        "dataset_source": "UNHabitat",
+        "owner_org": "unhabitat-das",
+        "maintainer": "denmwa02",
+        "data_update_frequency": "365",
+        "license_id": "hdx-pddl",
+        "caveats": "Read more at https://unhabitat.org/knowledge/data-and-analytics",
+        "subnational": "1",
+        "private": False,
+    }
+
+    resource_housing_slums = {
+        "name": "Slum_Estimates_2000-2020 (xlsx)",
+        "description": "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)",
         "format": "xlsx",
         "resource_type": "file.upload",
         "url_type": "upload",
@@ -103,22 +134,29 @@ class TestUNHabitat:
             with Download() as downloader:
                 retriever = Retrieve(downloader, folder, fixtures, folder, False, True)
                 unhabitat = UNHabitat(configuration, retriever, folder, ErrorsOnExit())
-                dataset_names = unhabitat.get_data(datasets=["green_areas"])
+                dataset_names = unhabitat.get_data(datasets=["green_areas", "housing_slums"])
                 assert dataset_names == [
                     {"name": "green_areas_AFG"},
                     {"name": "green_areas_world"},
+                    {"name": "housing_slums"}
                 ]
 
                 dataset = unhabitat.generate_dataset("green_areas_AFG")
                 dataset.update_from_yaml()
-                assert dataset == self.dataset
+                assert dataset == self.dataset_green_areas
                 resources = dataset.get_resources()
-                assert resources[0] == self.resource_csv
+                assert resources[0] == self.resource_green_areas_csv
                 file = "SDG_11-7-1_AFG.csv"
                 assert_files_same(join("tests", "fixtures", file), join(folder, file))
-                assert resources[1] == self.resource_xlsx
+                assert resources[1] == self.resource_green_areas_xlsx
                 file = "SDG_11-7-1_AFG.xlsx"
                 testing.assert_frame_equal(
                     read_excel(join("tests", "fixtures", file)),
                     read_excel(join(folder, file)),
                 )
+
+                dataset = unhabitat.generate_dataset("housing_slums")
+                dataset.update_from_yaml()
+                assert dataset == self.dataset_housing_slums
+                resources = dataset.get_resources()
+                assert resources[0] == self.resource_housing_slums

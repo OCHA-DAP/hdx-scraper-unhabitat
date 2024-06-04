@@ -23,19 +23,16 @@ class TestUNHabitat:
     dataset = {
         "name": "green-areas-afg",
         "title": "Afghanistan - Open spaces and green areas",
-        "notes": "An open public space (OPS) is defined as an area that openly and freely accessible space for all "
-                 "(without any cost implication) for enjoyment of social services such as recreation. Identification "
-                 "of open public spaces is based on data compiled from city land use plans and open sources including "
-                 "OpenStreetMap and GoogleEarth; Data used to estimate population with access to open public spaces is "
-                 "based on grid level population disaggregation directly from city/country data, or from the HRSL "
-                 "(facebook and CIESIN) and WorldPop;  City/urban area used in the analyis has been generated using a "
-                 "classification approach based on the Degree of Urbanization concept to city definition. As a result, "
-                 "the urban/city area used for the indicator computation in this data table may be larger or smaller "
-                 "than the official municipality boundaries. Designation and data provided by the country and compiled "
-                 "by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the "
-                 "part of the Secretariat of the United Nations concerning the legal status of any country, territory, "
-                 "city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries.",
-        "dataset_date": "[2020-01-01T00:00:00 TO 2020-12-31T23:59:59]",
+        "notes": "Calculated as the proportion of urban area allocated to streets and open public spaces - based on "
+                 "the National Register of Boundaries (PRG) WorldPop Database and Open Street Map Topographic Objects "
+                 "Database (BDOT10k). An open public space (OPS) is defined as an area that is openly and freely "
+                 "accessible space for all (without any cost implication) for enjoyment of social services such as "
+                 "recreation; Population with convenient access to open public spaces is the percentage share of urban "
+                 "population who can access an open public space within a walking distance of 400 meters along the "
+                 "street network. Designation and data provided by the country and compiled by UNHabitat. The "
+                 "designations employed do not imply the expression of any opinion whatsoever on the part of the "
+                 "Secretariat of the United Nations concerning the legal status of any country, territory, city or "
+                 "area; or of its authorities, or concerning the delimitation of its frontiers or boundaries.",
         "groups": [{"name": "afg"}],
         "tags": [
             {"name": "topography", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
@@ -47,6 +44,7 @@ class TestUNHabitat:
         "owner_org": "unhabitat-das",
         "maintainer": "denmwa02",
         "data_update_frequency": "365",
+        "dataset_date": "[2020-01-01T00:00:00 TO 2020-12-31T23:59:59]",
         "license_id": "hdx-pddl",
         "methodology": "Other",
         "methodology_other": "Full metadata available at "
@@ -57,14 +55,14 @@ class TestUNHabitat:
     }
 
     resource_csv = {
-        "name": "SDG_11_7_1_AFG (csv)",
+        "name": "SDG_11-7-1_AFG (csv)",
         "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
         "format": "csv",
         "resource_type": "file.upload",
         "url_type": "upload",
     }
     resource_xlsx = {
-        "name": "SDG_11_7_1_AFG (xlsx)",
+        "name": "SDG_11-7-1_AFG (xlsx)",
         "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
         "format": "xlsx",
         "resource_type": "file.upload",
@@ -98,6 +96,7 @@ class TestUNHabitat:
         return Configuration.read()
 
     def test_generate_dataset(self, configuration, fixtures):
+        configuration["countries"] = ["AFG"]
         with temp_dir(
                 "test_unhabitat", delete_on_success=True, delete_on_failure=False
         ) as folder:
@@ -115,10 +114,10 @@ class TestUNHabitat:
                 assert dataset == self.dataset
                 resources = dataset.get_resources()
                 assert resources[0] == self.resource_csv
-                file = "SDG_11_7_1_AFG.csv"
+                file = "SDG_11-7-1_AFG.csv"
                 assert_files_same(join("tests", "fixtures", file), join(folder, file))
                 assert resources[1] == self.resource_xlsx
-                file = "SDG_11_7_1_AFG.xlsx"
+                file = "SDG_11-7-1_AFG.xlsx"
                 testing.assert_frame_equal(
                     read_excel(join("tests", "fixtures", file)),
                     read_excel(join(folder, file)),

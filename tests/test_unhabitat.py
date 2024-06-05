@@ -23,16 +23,9 @@ class TestUNHabitat:
     dataset_green_areas = {
         "name": "green-areas-afg",
         "title": "Afghanistan - Open spaces and green areas",
-        "notes": "Calculated as the proportion of urban area allocated to streets and open public spaces - based on "
-                 "the National Register of Boundaries (PRG) WorldPop Database and Open Street Map Topographic Objects "
-                 "Database (BDOT10k). An open public space (OPS) is defined as an area that is openly and freely "
-                 "accessible space for all (without any cost implication) for enjoyment of social services such as "
-                 "recreation; Population with convenient access to open public spaces is the percentage share of urban "
-                 "population who can access an open public space within a walking distance of 400 meters along the "
-                 "street network. Designation and data provided by the country and compiled by UNHabitat. The "
-                 "designations employed do not imply the expression of any opinion whatsoever on the part of the "
-                 "Secretariat of the United Nations concerning the legal status of any country, territory, city or "
-                 "area; or of its authorities, or concerning the delimitation of its frontiers or boundaries.",
+        "notes": "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of "
+                 "urban population with convenient access to an open public space (defined as share of urban "
+                 "population within 400 meters walking distance along the street network to an open public space).",
         "groups": [{"name": "afg"}],
         "tags": [
             {"name": "topography", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
@@ -56,14 +49,16 @@ class TestUNHabitat:
 
     resource_green_areas_csv = {
         "name": "SDG_11-7-1_AFG (csv)",
-        "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
+        "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
+                       "all, by sex, age and persons with disabilities",
         "format": "csv",
         "resource_type": "file.upload",
         "url_type": "upload",
     }
     resource_green_areas_xlsx = {
         "name": "SDG_11-7-1_AFG (xlsx)",
-        "description": "Average share of the built-up area of cities that is open space for public use for all (%)",
+        "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
+                       "all, by sex, age and persons with disabilities",
         "format": "xlsx",
         "resource_type": "file.upload",
         "url_type": "upload",

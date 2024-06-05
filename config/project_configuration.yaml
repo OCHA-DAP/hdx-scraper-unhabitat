@@ -23,9 +23,9 @@ datasets:
       - "Average share of urban population with convenient access to open public spaces (%) [b]"
     format: "xlsx"
     title: "Open spaces and green areas"
-    notes: "Calculated as the proportion of urban area allocated to streets and open public spaces - based on the National Register of Boundaries (PRG) WorldPop Database and Open Street Map Topographic Objects Database (BDOT10k). An open public space (OPS) is defined as an area that is openly and freely accessible space for all (without any cost implication) for enjoyment of social services such as recreation; Population with convenient access to open public spaces is the percentage share of urban population who can access an open public space within a walking distance of 400 meters along the street network. Designation and data provided by the country and compiled by UNHabitat. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space)."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"
-    resource_notes: "Average share of the built-up area of cities that is open space for public use for all (%)"
+    resource_notes: "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities"
     tags:
       - "topography"
       - "urban"
@@ -53,9 +53,9 @@ datasets:
       - "Share of urban population with convenient access to public transport (%)"
     format: "xlsx"
     title: "Urban transport"
-    notes: "Only public transport stops which are mapped are included in the analysis which may include both formal and informal stops. Many cities have an informal network which is not fully mapped and may thus record higher levels of access to public transport than reported here. Data on public transport stops is sourced from city maps, OSM, GTFS, UITP, Google, and point mapping in some cities. Data used to estimate population with access to public transport is based on grid level population disaggregation directly from city/country data, High Resolution Settlement Layer - HRSL (Facebook Connectivity Lab and CIESIN), WorldPop or GHS-Pop. City/urban area used in the analyis has been generated using a classification approach based on the Degree of Urbanization concept to city definition  - as a result, the urban/city area used for the indicator computation in this data table may be larger or smaller than the official municipality boundary.  Designation and data estimated by UN-Habitat based on the global indicator methodology. The designations employed do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area; or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    notes: "Estimated share of urban population who can access a public transport stop within a walking distance of 500 meters (for low capacity public transport systems) and/or 1000 meters (for high capacity public transport systems) along the street network."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-02-01.pdf"
-    resource_notes: "Share of urban population with convenient access to public transport (%)"
+    resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
     tags:
       - "urban"
       - "sustainable development goals-sdg"
@@ -155,7 +155,7 @@ datasets:
   basic_services:
     title: "Access to basic services in cities and urban areas"
     notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services and other basic services by city and urban area"
-    methodology: ""
+    methodology: "See more at https://data.unhabitat.org/pages/access-to-basic-services-in-cities-and-urban-areas"
     date_min: 1990
     date_max: 2019
     tags:

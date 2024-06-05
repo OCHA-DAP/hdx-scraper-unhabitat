@@ -196,6 +196,120 @@ datasets:
         resource_notes: "Gini at disposable income after taxes and transfers"
         filename: "Gini_at_disposable_income_after_taxes_and_transfers,_2010_-_2017"
 
+  economic_indicators:
+    title: "Economic indicators"
+    notes: "Economic indicators. See more at https://data.unhabitat.org/pages/economic-indicators"
+    methodology: "See more at https://data.unhabitat.org/pages/economic-indicators"
+    date_min: 2000
+    date_max: 2017
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/9574109ff25c4ffcba778fc1e050a938/data"
+        format: "xls"
+        resource_notes: "Gini at disposable income after taxes and transfers"
+        filename: "Gini_at_disposable_income_after_taxes_and_transfers,_2010_-_2017"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/2e5ac6a26ff04816a4259dfa1276eea9/data"
+        format: "xls"
+        resource_notes: "GDP by Metropolitan Area, 2017"
+        filename: "GDP_by_Metropolitan_Area,_2017"
+      resource_3:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/0a84f38a6b9e4de793fe6a7adaeb6471/data"
+        format: "xls"
+        resource_notes: "GDP of metropolitan areas as a share of the national GDP, 2017"
+        filename: "GDP_of_the_metropolitan_area_as_a_share_of_the_national_GDP,_2017"
+
+  urban_population:
+    title: "Urban population trends"
+    notes: "Urban population trends. See more at https://data.unhabitat.org/pages/urban-population-and-demographic-trends"
+    methodology: "See more at https://data.unhabitat.org/pages/urban-population-and-demographic-trends"
+    date_min: 1995
+    date_max: 2050
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/c3b53897b73c434995e681b45f7182c3/data"
+        format: "xlsx"
+        resource_notes: "Urban Population at Mid-year by country 2000-2050 (Thousands)"
+        filename: "Urban_Population_at_Mid-Year_by_Country,_2000-2050_(thousands)"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/91b9244732a540af9e048887fbfacc27/data"
+        format: "xlsx"
+        resource_notes: "Percentage of Population at Mid-Year Residing in Urban areas by Country and Area, 2000-2050"
+        filename: "Percentage_of_Population_at_Mid-Year_Residing_in_Urban_Country_and_Area,_2000-2050"
+      resource_3:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/c425c4b45db846f4bf89fa5403ee68dd/data"
+        format: "xlsx"
+        resource_notes: "Average Annual Rate of Change of the Urban Population by Country 2000-2050 (Percent)"
+        filename: "Average_Annual_Rate_of_Change_of_the_Urban_Population_by_Country,_2000-2050_(per_cent)"
+      resource_4:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/beda0aca1ea74e93acae18cd23395773/data"
+        format: "xlsx"
+        resource_notes: "Average Annual Rate of Change of the Percentage Urban Population by Area 2000-2050 (Percent)"
+        filename: "Average_Annual_Rate_of_Change_of_the_Percentage_Urban_by_Country,_2000-2050"
+      resource_5:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/9ca4df2304ee457982eb04d7d19dbf11/data"
+        format: "xlsx"
+        resource_notes: "Population in Urban Agglomerations 2000 - 2035 (Thousands)"
+        filename: "Population_in_Urban_Agglomerations"
+      resource_6:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/f2f455c5ffc34e30a07fc05595aa6267/data"
+        format: "xlsx"
+        resource_notes: "Annual Rate of Population Change of Urban Agglomerations 1995 - 2035 (Percent)"
+        filename: "Annual_Rate_of_Population_Change_of_Urban_Agglomerations"
+      resource_7:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/1a20ea1831114ccda9ac74d4fb831d44/data"
+        format: "xlsx"
+        resource_notes: "Dependency Ratio - Youth by Country, 2015 - 2019 (Percent)"
+        filename: "Dependency_Ratio_-_Youth_by_Country,_2015_-_2019_(Percent)"
+      resource_8:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/91e78c795c2247f2be51564739c69daf/data"
+        format: "xlsx"
+        resource_notes: "Dependency Ratio - Elderly by Country, 2015 - 2019 (Percent)"
+        filename: "Dependency_Ratio_-_Elderly_by_Country,_2015_-_2019_(Percent)"
+      resource_9:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/c40b3b6d76c846d5856d06970df94bba/data"
+        format: "xlsx"
+        resource_notes: "Child Health Indicators"
+        filename: "Child_Health_Indicators"
+      resource_10:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/b536def3118649d4967242ab4cdbbd6d/data"
+        format: "xlsx"
+        resource_notes: "Child Nutrition Indicators"
+        filename: "Child_Nutrition_indicators"
+      resource_11:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/037450c9dc604055861e7a9cdcfa9690/data"
+        format: "xlsx"
+        resource_notes: "Child protection indicators"
+        filename: "Child_protection_indicators"
+      resource_12:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/ffac58cfa7b84320bbd203150ca118bc/data"
+        format: "xlsx"
+        resource_notes: "Children under 18 yrs living in slums households"
+        filename: "Children_under_18_yrs_living_in_slums_households"
+      resource_13:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/d51a6977f1e3483eae49919fe3caa439/data"
+        format: "xlsx"
+        resource_notes: "Maternal Health"
+        filename: "Maternal_Health"
+      resource_14:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/bade015e3ccc4c55bc289a64590df153/data"
+        format: "xlsx"
+        resource_notes: "Primary and Secondary Net Attendance Ratio"
+        filename: "Primary_and_Secondary_Net_Attendance_Rate"
+      resource_15:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/2ef7eb5936bd4cc2b529e14e9616dd0c/data"
+        format: "xlsx"
+        resource_notes: "Under-5 mortality rate"
+        filename: "Under-5_mortality_rate"
+
 countries:
   - AFG
   - BFA

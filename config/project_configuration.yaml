@@ -174,6 +174,28 @@ datasets:
         resource_notes: "Population with Improved Water, Improved Sanitation and Other Urban Basic Services in Urban Areas, Selected Countries (Percent)"
         filename: "Population_with_Improved_Water,_Sanitation_and_Other_Urban_Basic_Services_in_Urban_Areas,_Selected_Countries_(Percent)"
 
+  social_inclusion:
+    title: "Social inclusion indicators"
+    notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations. \nGini at disposable income after taxes and transfers by city or region per year between 2010 and 2017"
+    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf"
+    date_min: 2000
+    date_max: 2020
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/db372d6e417d410ba6ee14be199e568b/data"
+        format: "xlsx"
+        resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
+        filename: "Slum_Estimates_2000-2020"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/9574109ff25c4ffcba778fc1e050a938/data"
+        format: "xls"
+        resource_notes: "Gini at disposable income after taxes and transfers"
+        filename: "Gini_at_disposable_income_after_taxes_and_transfers,_2010_-_2017"
+
 countries:
   - AFG
   - BFA

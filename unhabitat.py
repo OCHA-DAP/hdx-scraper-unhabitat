@@ -10,7 +10,7 @@ import logging
 
 from hdx.data.dataset import Dataset
 from hdx.location.country import Country
-from hdx.utilities.dictandlist import dict_of_lists_add, dict_of_sets_add, write_list_to_csv
+from hdx.utilities.dictandlist import dict_of_dicts_add, dict_of_lists_add, dict_of_sets_add, write_list_to_csv
 from hdx.data.resource import Resource
 from os.path import join
 from pandas import DataFrame, ExcelWriter
@@ -34,17 +34,22 @@ class UNHabitat:
             datasets = self.configuration["datasets"]
         for dataset_name in datasets:
             dataset_info = self.configuration["datasets"][dataset_name]
-            base_url = dataset_info["base_url"]
+
             if dataset_info.get("global"):
-                file_path = self.retriever.download_file(
-                    base_url,
-                    filename=f"{dataset_info['filename']}.{dataset_info['format']}",
-                )
-                self.files[dataset_name] = file_path
-                dict_of_sets_add(self.dates, dataset_name, dataset_info["date_min"])
-                dict_of_sets_add(self.dates, dataset_name, dataset_info["date_max"])
+                resource_infos = dataset_info["resources"]
+                for resource in resource_infos:
+                    resource_info = resource_infos[resource]
+                    base_url = resource_info["base_url"]
+                    file_path = self.retriever.download_file(
+                        base_url,
+                        filename=f"{resource_info['filename']}.{resource_info['format']}",
+                    )
+                    dict_of_dicts_add(self.files, dataset_name, resource, file_path)
+                    dict_of_sets_add(self.dates, dataset_name, dataset_info["date_min"])
+                    dict_of_sets_add(self.dates, dataset_name, dataset_info["date_max"])
                 continue
 
+            base_url = dataset_info["base_url"]
             headers, iterator = self.retriever.get_tabular_rows(
                 base_url,
                 headers=dataset_info.get("header", 1),
@@ -104,9 +109,11 @@ class UNHabitat:
             dataset.add_country_location(country_name)
         dataset.add_tags(dataset_info["tags"])
 
-        filepath = self.files.get(dataset_name)
-        if filepath:
-            self.generate_resource(dataset, dataset_info, dataset_info["format"], filepath=filepath)
+        filepaths = self.files.get(dataset_name)
+        if filepaths:
+            for resource in filepaths:
+                resource_info = dataset_info["resources"][resource]
+                self.generate_resource(dataset, resource_info, resource_info["format"], filepath=filepaths[resource])
             return dataset
 
         rows = self.data[dataset_name]

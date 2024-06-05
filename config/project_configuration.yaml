@@ -115,25 +115,64 @@ datasets:
     resource_notes: "Ratio of land consumption rate to population growth rate"
     tags:
       - "urban"
-      - "population"
       - "sustainable development goals-sdg"
     filename: "SDG_11-3-1"
 
   housing_slums:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/db372d6e417d410ba6ee14be199e568b/data"
-    format: "xlsx"
-    date_min: 2000
-    date_max: 2020
     title: "Housing, slums and informal settlements"
     notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations."
     methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf"
-    resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
+    date_min: 2000
+    date_max: 2020
     tags:
       - "urban"
-      - "population"
       - "sustainable development goals-sdg"
-    filename: "Slum_Estimates_2000-2020"
     global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/db372d6e417d410ba6ee14be199e568b/data"
+        format: "xlsx"
+        resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
+        filename: "Slum_Estimates_2000-2020"
+
+  city_prosperity:
+    title: "City Prosperity Index (CPI)"
+    notes: "Data for 333 cities and urban areas on 25 indicators across the six dimensions of the City Prosperity Index (CPI): Productivity, Infrastructure Development, Quality of life, Equity and Social Inclusion, Environmental Sustainability and Governance and Legislation."
+    methodology: "Full metadata available at https://unhabitat.org/knowledge/city-prosperity-initiative"
+    date_min: 2016
+    date_max: 2016
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/7623998f6c6848009c9cbee2415b5c47/data"
+        format: "xls"
+        resource_notes: "City Prosperity Index combined dataset, 2016"
+        filename: "CPI_Database_2016"
+
+  basic_services:
+    title: "Access to basic services in cities and urban areas"
+    notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services and other basic services by city and urban area"
+    methodology: ""
+    date_min: 1990
+    date_max: 2019
+    tags:
+      - "urban"
+      - "sustainable development goals-sdg"
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/c0b23da0cd5442ad8ed4d3a4a0065524/data"
+        format: "xlsx"
+        resource_notes: "Population with Improved Water, Improved Sanitation and Other Urban Basic Services in Cities, Selected Countries (Percent)"
+        filename: "Population_with_Improved_Water,_Improved_Sanitation_and_Other_Urban_Basic_Services_in_Cities,_Selected_Countries_(Percent)"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/6e8ce4b4eda04f25b7a8af0e4281c950/data"
+        format: "xlsx"
+        resource_notes: "Population with Improved Water, Improved Sanitation and Other Urban Basic Services in Urban Areas, Selected Countries (Percent)"
+        filename: "Population_with_Improved_Water,_Sanitation_and_Other_Urban_Basic_Services_in_Urban_Areas,_Selected_Countries_(Percent)"
 
 countries:
   - AFG

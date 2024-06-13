@@ -59,7 +59,6 @@ class UNHabitat:
             )
 
             for row in iterator:
-                row = {key: row[key] for key in row if key in dataset_info["headers"]}
                 country_name = row[dataset_info["country_header"]]
                 if not country_name:
                     continue

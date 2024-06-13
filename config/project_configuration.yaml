@@ -10,7 +10,6 @@ datasets:
     format: "xlsx"
     title: "Open spaces and green areas"
     notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space)."
-    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"
     resource_notes: "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities"
     tags:
       - "topography"
@@ -27,7 +26,6 @@ datasets:
     format: "xlsx"
     title: "Urban transport"
     notes: "Estimated share of urban population who can access a public transport stop within a walking distance of 500 meters (for low capacity public transport systems) and/or 1000 meters (for high capacity public transport systems) along the street network."
-    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-02-01.pdf"
     resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
     tags:
       - "urban"
@@ -50,7 +48,6 @@ datasets:
     format: "xls"
     title: "Urban environment and quality of life"
     notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
-    methodology: "See dataset page at https://data.unhabitat.org/pages/urban-environment-and-quality-of-life"
     resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
     tags:
       - "urban"
@@ -65,7 +62,6 @@ datasets:
     format: "xlsx"
     title: "Spatial growth of cities and urban areas"
     notes: "Multi-temporal city data on a) Annual land consumption rate (%), b) population growth rate (%), c) ratio of land consumption rate to population growth rate, and d) built up area per capita."
-    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-03-01.pdf"
     resource_notes: "Global SDG 11.3.1 dataset"
     tags:
       - "urban"
@@ -75,7 +71,6 @@ datasets:
   housing_slums:
     title: "Housing, slums and informal settlements"
     notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations."
-    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf"
     date_min: 2000
     date_max: 2020
     tags:
@@ -109,7 +104,6 @@ datasets:
   basic_services:
     title: "Access to basic services in cities and urban areas"
     notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services and other basic services by city and urban area"
-    methodology: "See more at https://data.unhabitat.org/pages/access-to-basic-services-in-cities-and-urban-areas"
     date_min: 1990
     date_max: 2019
     tags:
@@ -131,7 +125,6 @@ datasets:
   social_inclusion:
     title: "Social inclusion indicators"
     notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations. \nGini at disposable income after taxes and transfers by city or region per year between 2010 and 2017"
-    methodology: "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf"
     date_min: 2000
     date_max: 2020
     tags:
@@ -153,7 +146,6 @@ datasets:
   economic_indicators:
     title: "Economic indicators"
     notes: "Economic indicators. See more at https://data.unhabitat.org/pages/economic-indicators"
-    methodology: "See more at https://data.unhabitat.org/pages/economic-indicators"
     date_min: 2000
     date_max: 2017
     tags:
@@ -180,7 +172,6 @@ datasets:
   urban_population:
     title: "Urban population trends"
     notes: "Urban population trends. See more at https://data.unhabitat.org/pages/urban-population-and-demographic-trends"
-    methodology: "See more at https://data.unhabitat.org/pages/urban-population-and-demographic-trends"
     date_min: 1995
     date_max: 2050
     tags:

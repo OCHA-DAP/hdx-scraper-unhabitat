@@ -40,8 +40,7 @@ class TestUNHabitat:
         "dataset_date": "[2020-01-01T00:00:00 TO 2020-12-31T23:59:59]",
         "license_id": "hdx-pddl",
         "methodology": "Other",
-        "methodology_other": "Full metadata available at "
-                             "https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf",
+        "methodology_other": "See methodology at https://data.unhabitat.org/pages/guidance",
         "caveats": "Read more at https://unhabitat.org/knowledge/data-and-analytics",
         "subnational": "1",
         "private": False,
@@ -69,7 +68,7 @@ class TestUNHabitat:
         "title": "Housing, slums and informal settlements",
         "notes": "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations.",
         "methodology": "Other",
-        "methodology_other": "Full metadata available at https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf",
+        "methodology_other": "See methodology at https://data.unhabitat.org/pages/guidance",
         "dataset_date": "[2000-01-01T00:00:00 TO 2020-12-31T23:59:59]",
         "groups": [{"name": "world"}],
         "tags": [

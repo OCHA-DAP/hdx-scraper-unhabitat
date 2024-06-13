@@ -28,7 +28,6 @@ class TestUNHabitat:
                  "population within 400 meters walking distance along the street network to an open public space).",
         "groups": [{"name": "afg"}],
         "tags": [
-            {"name": "topography", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
             {"name": "urban", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
             {"name": "sustainable development goals-sdg", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
         ],
@@ -107,7 +106,6 @@ class TestUNHabitat:
         )
         UserAgent.set_global("test")
         tags = (
-            "topography",
             "urban",
             "sustainable development goals-sdg",
         )

@@ -104,7 +104,7 @@ class UNHabitat:
             dataset.add_other_location(country_name)
         else:
             dataset.add_country_location(country_name)
-        dataset.add_tags(dataset_info["tags"])
+        dataset.add_tags(self.configuration["tags"])
 
         filepaths = self.files.get(dataset_name)
         if filepaths:

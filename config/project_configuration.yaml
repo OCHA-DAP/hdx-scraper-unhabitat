@@ -84,23 +84,6 @@ datasets:
         resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
         filename: "Slum_Estimates_2000-2020"
 
-  city_prosperity:
-    title: "City Prosperity Index (CPI)"
-    notes: "Data for 333 cities and urban areas on 25 indicators across the six dimensions of the City Prosperity Index (CPI): Productivity, Infrastructure Development, Quality of life, Equity and Social Inclusion, Environmental Sustainability and Governance and Legislation."
-    methodology: "Full metadata available at https://unhabitat.org/knowledge/city-prosperity-initiative"
-    date_min: 2016
-    date_max: 2016
-    tags:
-      - "urban"
-      - "sustainable development goals-sdg"
-    global: True
-    resources:
-      resource_1:
-        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/7623998f6c6848009c9cbee2415b5c47/data"
-        format: "xls"
-        resource_notes: "City Prosperity Index combined dataset, 2016"
-        filename: "CPI_Database_2016"
-
   basic_services:
     title: "Access to basic services in cities and urban areas"
     notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services and other basic services by city and urban area"

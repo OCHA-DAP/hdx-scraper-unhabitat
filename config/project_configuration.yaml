@@ -2,20 +2,6 @@
 datasets:
   green_areas:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
-    headers:
-      - "SDG Indicator"
-      - "Country or Territory Code"
-      - "Country or Territory Name"
-      - "SDG Region"
-      - "SDG Sub-Region"
-      - "City Code"
-      - "City Name"
-      - "Average share of the built-up area of cities that is open space for public use for all (%) [a]"
-      - "Average share of urban population with convenient access to open public spaces (%) [b]"
-      - "Data Units"
-      - "Data Reference Year"
-      - "Data Source"
-      - "FootNote"
     country_header: "Country or Territory Name"
     date_header: "Data Reference Year"
     value_header:
@@ -34,19 +20,6 @@ datasets:
 
   urban_transport:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/62b0629736c44068bcf4ce2cbce03f8f/data"
-    headers:
-      - "SDG Indicator"
-      - "Country or Territory Code"
-      - "Country or Territory Name"
-      - "SDG Region"
-      - "SDG Sub-Region"
-      - "City Code"
-      - "City Name"
-      - "Share of urban population with convenient access to public transport (%)"
-      - "Data Units"
-      - "Data Reference Year"
-      - "Data Source"
-      - "FootNote"
     country_header: "Country or Territory Name"
     date_header: "Data Reference Year"
     value_header:
@@ -65,15 +38,6 @@ datasets:
   urban_environment:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
     header: 3
-    headers:
-      - "Country"
-      - "Subnational Regions"
-      - "Data Units"
-      - "2015"
-      - "2016"
-      - "2017"
-      - "2018"
-      - "2019"
     country_header: "Country"
     value_header:
       - "2015"
@@ -95,31 +59,9 @@ datasets:
 
   spatial_growth_cities:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/8df37ec6315449b185a8b080dee544ff/data"
-    headers:
-      - "SDG Indicator"
-      - "Country or Territory Code"
-      - "Country or Territory Name"
-      - "SDG Region"
-      - "SDG Sub-Region"
-      - "City Code"
-      - "City Name"
-      - "Data Year 1"
-      - "Data Year 2"
-      - "Data Year 3"
-      - "Land consumption rate (LCR) Year 1 to Year 2 (%)"
-      - "Land consumption rate (LCR) Year 2 to Year 3 (%)"
-      - "Population Growth Rate (PGR) Year 1 to Year 2 (%)"
-      - "Population Growth Rate (PGR) Year 2 to Year 3 (%)"
-      - "Ratio of Land Consumption Rate to Population Growth Rate (LCRPGR) Year 1 to Year 2 (Ratio)"
-      - "Ratio of Land Consumption Rate to Population Growth Rate (LCRPGR) Year 2 to Year 3 (Ratio)"
-      - "Built Up area Per Capita Year 1 (m2 per person)"
-      - "Built Up area Per Capita Year 2 (m2 per person)"
-      - "Built Up area Per Capita Year 3 (m2 per person)"
-      - "Data Source"
-      - "FootNote"
     country_header: "Country or Territory Name"
-    date_min: 2000
-    date_max: 2020
+    date_min: 1991
+    date_max: 2023
     format: "xlsx"
     title: "Spatial growth of cities and urban areas"
     notes: "Multi-temporal city data on a) Annual land consumption rate (%), b) population growth rate (%), c) ratio of land consumption rate to population growth rate, and d) built up area per capita."

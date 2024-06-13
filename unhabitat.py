@@ -67,14 +67,18 @@ class UNHabitat:
                 if iso3 in self.configuration["countries"]:
                     dict_of_lists_add(self.data, f"{dataset_name}_{iso3}", row)
                     if dataset_info.get("date_header"):
-                        dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", row[dataset_info["date_header"]])
+                        for date_header in dataset_info["date_header"]:
+                            if row[date_header]:
+                                dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", row[date_header])
                     else:
                         dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", dataset_info["date_min"])
                         dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", dataset_info["date_max"])
 
                 dict_of_lists_add(self.data, f"{dataset_name}_world", row)
                 if dataset_info.get("date_header"):
-                    dict_of_sets_add(self.dates, f"{dataset_name}_world", row[dataset_info["date_header"]])
+                    for date_header in dataset_info["date_header"]:
+                        if row[date_header]:
+                            dict_of_sets_add(self.dates, f"{dataset_name}_world", row[date_header])
                 else:
                     dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_min"])
                     dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_max"])
@@ -124,6 +128,8 @@ class UNHabitat:
         if rows:
             headers = list(rows[0].keys())
             filename = f"{dataset_info['filename']}_{iso3}"
+            if iso3 == "world":
+                filename = dataset_info["filename"]
             filepath = join(self.folder, f"{filename}.{file_format}")
             if file_format == "csv":
                 write_list_to_csv(filepath, rows, columns=headers, encoding="utf-8")

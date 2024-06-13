@@ -4,9 +4,6 @@ datasets:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
     country_header: "Country or Territory Name"
     date_header: "Data Reference Year"
-    value_header:
-      - "Average share of the built-up area of cities that is open space for public use for all (%) [a]"
-      - "Average share of urban population with convenient access to open public spaces (%) [b]"
     format: "xlsx"
     title: "Open spaces and green areas"
     notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space)."
@@ -17,8 +14,6 @@ datasets:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/62b0629736c44068bcf4ce2cbce03f8f/data"
     country_header: "Country or Territory Name"
     date_header: "Data Reference Year"
-    value_header:
-      - "Share of urban population with convenient access to public transport (%)"
     format: "xlsx"
     title: "Urban transport"
     notes: "Estimated share of urban population who can access a public transport stop within a walking distance of 500 meters (for low capacity public transport systems) and/or 1000 meters (for high capacity public transport systems) along the street network."
@@ -29,12 +24,6 @@ datasets:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
     header: 3
     country_header: "Country"
-    value_header:
-      - "2015"
-      - "2016"
-      - "2017"
-      - "2018"
-      - "2019"
     date_min: 2015
     date_max: 2019
     format: "xls"

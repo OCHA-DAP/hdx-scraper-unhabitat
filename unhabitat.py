@@ -131,11 +131,12 @@ class UNHabitat:
                 df = DataFrame(rows)
                 writer = ExcelWriter(filepath, engine="xlsxwriter")
                 df.to_excel(writer, sheet_name=filename[:24], index=False)
-                if dataset_info.get("value_header"):
+                float_headers = df.select_dtypes(include=['float64']).columns
+                if len(float_headers) > 0:
                     workbook = writer.book
                     worksheet = writer.sheets[filename[:24]]
                     num_format = workbook.add_format({"num_format": "0.0"})
-                    for header in dataset_info["value_header"]:
+                    for header in float_headers:
                         worksheet.set_column(headers.index(header), headers.index(header), None, num_format)
                 writer.close()
         resource = Resource(

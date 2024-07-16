@@ -1,6 +1,6 @@
 # Collector specific configuration
 datasets:
-  green_areas:
+  open_spaces:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
     country_header: "Country or Territory Name"
     date_header:
@@ -21,18 +21,6 @@ datasets:
     notes: "Estimated share of urban population who can access a public transport stop within a walking distance of 500 meters (for low capacity public transport systems) and/or 1000 meters (for high capacity public transport systems) along the street network."
     resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
     filename: "SDG_11-2-1"
-
-  urban_environment:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
-    header: 3
-    country_header: "Country"
-    date_min: 2015
-    date_max: 2019
-    format: "xls"
-    title: "Urban environment and quality of life"
-    notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
-    resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
-    filename: "Mean_Population_Exposure_to_PM2.5"
 
   spatial_growth_cities:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/8df37ec6315449b185a8b080dee544ff/data"
@@ -59,6 +47,19 @@ datasets:
         format: "xlsx"
         resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
         filename: "Slum_Estimates_2000-2020"
+
+  # Everything below is not ready for production
+  urban_environment:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
+    header: 3
+    country_header: "Country"
+    date_min: 2015
+    date_max: 2019
+    format: "xls"
+    title: "Urban environment and quality of life"
+    notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
+    resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
+    filename: "Mean_Population_Exposure_to_PM2.5"
 
   basic_services:
     title: "Access to basic services in cities and urban areas"

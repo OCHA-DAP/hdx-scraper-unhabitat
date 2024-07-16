@@ -20,8 +20,8 @@ from unhabitat import UNHabitat
 
 
 class TestUNHabitat:
-    dataset_green_areas = {
-        "name": "green-areas-afg",
+    dataset_open_spaces = {
+        "name": "open-spaces-afg",
         "title": "Afghanistan - Open spaces and green areas",
         "notes": "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of "
                  "urban population with convenient access to an open public space (defined as share of urban "
@@ -45,7 +45,7 @@ class TestUNHabitat:
         "private": False,
     }
 
-    resource_green_areas_csv = {
+    resource_open_spaces_csv = {
         "name": "SDG_11-7-1_AFG (csv)",
         "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
                        "all, by sex, age and persons with disabilities",
@@ -53,7 +53,7 @@ class TestUNHabitat:
         "resource_type": "file.upload",
         "url_type": "upload",
     }
-    resource_green_areas_xlsx = {
+    resource_open_spaces_xlsx = {
         "name": "SDG_11-7-1_AFG (xlsx)",
         "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
                        "all, by sex, age and persons with disabilities",
@@ -126,21 +126,21 @@ class TestUNHabitat:
             with Download() as downloader:
                 retriever = Retrieve(downloader, folder, fixtures, folder, False, True)
                 unhabitat = UNHabitat(configuration, retriever, folder, ErrorsOnExit())
-                dataset_names = unhabitat.get_data(datasets=["green_areas", "housing_slums"])
+                dataset_names = unhabitat.get_data(datasets=["open_spaces", "housing_slums"])
                 assert dataset_names == [
-                    {"name": "green_areas_AFG"},
-                    {"name": "green_areas_world"},
+                    {"name": "open_spaces_AFG"},
+                    {"name": "open_spaces_world"},
                     {"name": "housing_slums"}
                 ]
 
-                dataset = unhabitat.generate_dataset("green_areas_AFG")
+                dataset = unhabitat.generate_dataset("open_spaces_AFG")
                 dataset.update_from_yaml()
-                assert dataset == self.dataset_green_areas
+                assert dataset == self.dataset_open_spaces
                 resources = dataset.get_resources()
-                assert resources[0] == self.resource_green_areas_csv
+                assert resources[0] == self.resource_open_spaces_csv
                 file = "SDG_11-7-1_AFG.csv"
                 assert_files_same(join("tests", "fixtures", file), join(folder, file))
-                assert resources[1] == self.resource_green_areas_xlsx
+                assert resources[1] == self.resource_open_spaces_xlsx
                 file = "SDG_11-7-1_AFG.xlsx"
                 testing.assert_frame_equal(
                     read_excel(join("tests", "fixtures", file)),

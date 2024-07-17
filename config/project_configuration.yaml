@@ -36,17 +36,15 @@ datasets:
     filename: "SDG_11-3-1"
 
   housing_slums:
+    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/abcc290e8aa940f2a4deade7a338c6d6/data"
+    country_header: "Country or Territory Name2"
+    date_header:
+      - "Data Reference Year"
+    format: "xlsx"
     title: "Housing, slums and informal settlements"
-    notes: "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations."
-    date_min: 2000
-    date_max: 2020
-    global: True
-    resources:
-      resource_1:
-        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/db372d6e417d410ba6ee14be199e568b/data"
-        format: "xlsx"
-        resource_notes: "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)"
-        filename: "Slum_Estimates_2000-2020"
+    notes: "Proportion of urban population living in slums or informal settlements per country, territory and region, based on 4 out of 5 main household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations. \nProportion of urban population living in inadequate housing, calculated based on households with net monthly expenditure on housing exceeding 30% of their total monthly income ."
+    resource_notes: "Proportion of urban population living in slums, informal settlements or inadequate housing."
+    filename: "SDG_11-1-1"
 
   # Everything below is not ready for production
   urban_environment:

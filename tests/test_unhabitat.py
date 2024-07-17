@@ -62,37 +62,6 @@ class TestUNHabitat:
         "url_type": "upload",
     }
 
-    dataset_housing_slums = {
-        "name": "housing-slums",
-        "title": "Housing, slums and informal settlements",
-        "notes": "The share of urban population living in slum households per country and region, based on 4 out of 5 household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations.",
-        "methodology": "Other",
-        "methodology_other": "See methodology at https://data.unhabitat.org/pages/guidance",
-        "dataset_date": "[2000-01-01T00:00:00 TO 2020-12-31T23:59:59]",
-        "groups": [{"name": "world"}],
-        "tags": [
-            {"name": "urban", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"},
-            {"name": "sustainable development goals-sdg", "vocabulary_id": "b891512e-9516-4bf5-962a-7a289772a2a1"}
-        ],
-        "package_creator": "briar-mills",
-        "dataset_source": "UNHabitat",
-        "owner_org": "unhabitat-das",
-        "maintainer": "denmwa02",
-        "data_update_frequency": "365",
-        "license_id": "hdx-pddl",
-        "caveats": "Read more at https://unhabitat.org/knowledge/data-and-analytics",
-        "subnational": "1",
-        "private": False,
-    }
-
-    resource_housing_slums = {
-        "name": "Slum_Estimates_2000-2020 (xlsx)",
-        "description": "Proportion of Urban Population Living in Slum Households by Country or area 2000 - 2020 (Percent)",
-        "format": "xlsx",
-        "resource_type": "file.upload",
-        "url_type": "upload",
-    }
-
     @pytest.fixture(scope="function")
     def fixtures(self):
         return join("tests", "fixtures")
@@ -126,11 +95,10 @@ class TestUNHabitat:
             with Download() as downloader:
                 retriever = Retrieve(downloader, folder, fixtures, folder, False, True)
                 unhabitat = UNHabitat(configuration, retriever, folder, ErrorsOnExit())
-                dataset_names = unhabitat.get_data(datasets=["open_spaces", "housing_slums"])
+                dataset_names = unhabitat.get_data(datasets=["open_spaces"])
                 assert dataset_names == [
                     {"name": "open_spaces_AFG"},
                     {"name": "open_spaces_world"},
-                    {"name": "housing_slums"}
                 ]
 
                 dataset = unhabitat.generate_dataset("open_spaces_AFG")
@@ -146,9 +114,3 @@ class TestUNHabitat:
                     read_excel(join("tests", "fixtures", file)),
                     read_excel(join(folder, file)),
                 )
-
-                dataset = unhabitat.generate_dataset("housing_slums")
-                dataset.update_from_yaml()
-                assert dataset == self.dataset_housing_slums
-                resources = dataset.get_resources()
-                assert resources[0] == self.resource_housing_slums

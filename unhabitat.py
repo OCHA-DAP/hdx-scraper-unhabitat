@@ -10,7 +10,7 @@ import logging
 
 from hdx.data.dataset import Dataset
 from hdx.location.country import Country
-from hdx.utilities.dictandlist import dict_of_dicts_add, dict_of_lists_add, dict_of_sets_add, write_list_to_csv
+from hdx.utilities.dictandlist import dict_of_dicts_add, dict_of_sets_add, write_list_to_csv
 from hdx.data.resource import Resource
 from os.path import join
 from pandas import DataFrame, ExcelWriter
@@ -35,10 +35,10 @@ class UNHabitat:
         for dataset_name in datasets:
             dataset_info = self.configuration["datasets"][dataset_name]
 
-            if dataset_info.get("global"):
-                resource_infos = dataset_info["resources"]
-                for resource, resource_info in resource_infos.items():
-                    base_url = resource_info["base_url"]
+            resource_infos = dataset_info["resources"]
+            for resource, resource_info in resource_infos.items():
+                base_url = resource_info["base_url"]
+                if dataset_info.get("global"):
                     file_path = self.retriever.download_file(
                         base_url,
                         filename=f"{resource_info['filename']}.{resource_info['format']}",
@@ -46,41 +46,39 @@ class UNHabitat:
                     dict_of_dicts_add(self.files, dataset_name, resource, file_path)
                     dict_of_sets_add(self.dates, dataset_name, dataset_info["date_min"])
                     dict_of_sets_add(self.dates, dataset_name, dataset_info["date_max"])
-                continue
-
-            base_url = dataset_info["base_url"]
-            headers, iterator = self.retriever.get_tabular_rows(
-                base_url,
-                headers=dataset_info.get("header", 1),
-                format=dataset_info.get("format"),
-                dict_form=True,
-                encoding="utf-8"
-            )
-
-            for row in iterator:
-                country_name = row[dataset_info["country_header"]]
-                if not country_name:
-                    continue
-                iso3 = Country.get_iso3_country_code(country_name)
-
-                if iso3 in self.configuration["countries"]:
-                    dict_of_lists_add(self.data, f"{dataset_name}_{iso3}", row)
-                    if dataset_info.get("date_header"):
-                        for date_header in dataset_info["date_header"]:
-                            if row[date_header]:
-                                dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", row[date_header])
-                    else:
-                        dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", dataset_info["date_min"])
-                        dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", dataset_info["date_max"])
-
-                dict_of_lists_add(self.data, f"{dataset_name}_world", row)
-                if dataset_info.get("date_header"):
-                    for date_header in dataset_info["date_header"]:
-                        if row[date_header]:
-                            dict_of_sets_add(self.dates, f"{dataset_name}_world", row[date_header])
                 else:
-                    dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_min"])
-                    dict_of_sets_add(self.dates, f"{dataset_name}_world", dataset_info["date_max"])
+                    headers, iterator = self.retriever.get_tabular_rows(
+                        base_url,
+                        headers=resource_info.get("header", 1),
+                        format=resource_info.get("format"),
+                        dict_form=True,
+                        encoding="utf-8"
+                    )
+
+                    for row in iterator:
+                        country_name = row[resource_info["country_header"]]
+                        if not country_name:
+                            continue
+                        iso3 = Country.get_iso3_country_code(country_name)
+
+                        if iso3 in self.configuration["countries"]:
+                            self.add_row_to_data_dict(f"{dataset_name}_{iso3}", resource, row)
+                            if resource_info.get("date_header"):
+                                for date_header in resource_info["date_header"]:
+                                    if row[date_header]:
+                                        dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", row[date_header])
+                            else:
+                                dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", resource_info["date_min"])
+                                dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", resource_info["date_max"])
+
+                        self.add_row_to_data_dict(f"{dataset_name}_world", resource, row)
+                        if resource_info.get("date_header"):
+                            for date_header in resource_info["date_header"]:
+                                if row[date_header]:
+                                    dict_of_sets_add(self.dates, f"{dataset_name}_world", row[date_header])
+                        else:
+                            dict_of_sets_add(self.dates, f"{dataset_name}_world", resource_info["date_min"])
+                            dict_of_sets_add(self.dates, f"{dataset_name}_world", resource_info["date_max"])
 
         return [{"name": dataset_name} for dataset_name in sorted(self.data)] + [{"name": dataset_name} for dataset_name in sorted(self.files)]
 
@@ -109,26 +107,28 @@ class UNHabitat:
             dataset.add_country_location(country_name)
         dataset.add_tags(self.configuration["tags"])
 
+        resource_infos = dataset_info["resources"]
         filepaths = self.files.get(dataset_name)
         if filepaths:
             for resource in filepaths:
-                resource_info = dataset_info["resources"][resource]
+                resource_info = resource_infos[resource]
                 self.generate_resource(dataset, resource_info, resource_info["format"], filepath=filepaths[resource])
             return dataset
 
-        rows = self.data[dataset_name]
-        self.generate_resource(dataset, dataset_info, "csv", iso3=iso3, rows=rows)
-        self.generate_resource(dataset, dataset_info, "xlsx", iso3=iso3, rows=rows)
+        for resource, resource_info in resource_infos.items():
+            rows = self.data[dataset_name][resource]
+            self.generate_resource(dataset, resource_info, "csv", iso3=iso3, rows=rows)
+            self.generate_resource(dataset, resource_info, "xlsx", iso3=iso3, rows=rows)
         return dataset
 
-    def generate_resource(self, dataset, dataset_info, file_format, iso3=None, rows=None, filepath=None):
+    def generate_resource(self, dataset, resource_info, file_format, iso3=None, rows=None, filepath=None):
         if filepath:
-            filename = dataset_info["filename"]
+            filename = resource_info["filename"]
         if rows:
             headers = list(rows[0].keys())
-            filename = f"{dataset_info['filename']}_{iso3}"
+            filename = f"{resource_info['filename']}_{iso3}"
             if iso3 == "world":
-                filename = dataset_info["filename"]
+                filename = resource_info["filename"]
             filepath = join(self.folder, f"{filename}.{file_format}")
             if file_format == "csv":
                 write_list_to_csv(filepath, rows, columns=headers, encoding="utf-8")
@@ -147,7 +147,7 @@ class UNHabitat:
         resource = Resource(
             {
                 "name": f"{filename} ({file_format})",
-                "description": dataset_info["resource_notes"],
+                "description": resource_info["resource_notes"],
             }
         )
 
@@ -155,3 +155,16 @@ class UNHabitat:
         resource.set_file_to_upload(filepath)
         dataset.add_update_resource(resource)
         return resource
+
+    def add_row_to_data_dict(self, dataset_name, resource, row):
+        if dataset_name not in self.data:
+            self.data[dataset_name] = {resource: [row]}
+            return
+
+        if resource not in self.data[dataset_name]:
+            self.data[dataset_name][resource] = [row]
+            return
+
+        self.data[dataset_name][resource].append(row)
+        return
+

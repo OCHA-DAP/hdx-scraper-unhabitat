@@ -1,50 +1,66 @@
 # Collector specific configuration
 datasets:
   open_spaces:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
-    country_header: "Country or Territory Name"
-    date_header:
-      - "Data Reference Year"
-    format: "xlsx"
     title: "Open spaces and green areas"
     notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space)."
-    resource_notes: "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities"
-    filename: "SDG_11-7-1"
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
+        format: "xlsx"
+        resource_notes: "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities"
+        filename: "SDG_11-7-1"
+        country_header: "Country or Territory Name"
+        date_header:
+          - "Data Reference Year"
 
   urban_transport:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/62b0629736c44068bcf4ce2cbce03f8f/data"
-    country_header: "Country or Territory Name"
-    date_header:
-      - "Data Reference Year"
-    format: "xlsx"
     title: "Urban transport"
     notes: "Estimated share of urban population who can access a public transport stop within a walking distance of 500 meters (for low capacity public transport systems) and/or 1000 meters (for high capacity public transport systems) along the street network."
-    resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
-    filename: "SDG_11-2-1"
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/62b0629736c44068bcf4ce2cbce03f8f/data"
+        format: "xlsx"
+        resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
+        filename: "SDG_11-2-1"
+        country_header: "Country or Territory Name"
+        date_header:
+          - "Data Reference Year"
 
   spatial_growth_cities:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/8df37ec6315449b185a8b080dee544ff/data"
-    country_header: "Country or Territory Name"
-    date_header:
-      - "Data Year 1"
-      - "Data Year 2"
-      - "Data Year 3"
-    format: "xlsx"
     title: "Spatial growth of cities and urban areas"
     notes: "Multi-temporal city data on a) Annual land consumption rate (%), b) population growth rate (%), c) ratio of land consumption rate to population growth rate, and d) built up area per capita."
-    resource_notes: "Global SDG 11.3.1 dataset"
-    filename: "SDG_11-3-1"
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/8df37ec6315449b185a8b080dee544ff/data"
+        format: "xlsx"
+        resource_notes: "Global SDG 11.3.1 dataset"
+        filename: "SDG_11-3-1"
+        country_header: "Country or Territory Name"
+        date_header:
+          - "Data Year 1"
+          - "Data Year 2"
+          - "Data Year 3"
 
   housing_slums:
-    base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/abcc290e8aa940f2a4deade7a338c6d6/data"
-    country_header: "Country or Territory Name2"
-    date_header:
-      - "Data Reference Year"
-    format: "xlsx"
     title: "Housing, slums and informal settlements"
-    notes: "Proportion of urban population living in slums or informal settlements per country, territory and region, based on 4 out of 5 main household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations. \nProportion of urban population living in inadequate housing, calculated based on households with net monthly expenditure on housing exceeding 30% of their total monthly income ."
-    resource_notes: "Proportion of urban population living in slums, informal settlements or inadequate housing."
-    filename: "SDG_11-1-1"
+    notes: "Proportion of urban population living in slums or informal settlements per country, territory and region, based on 4 out of 5 main household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations. \nProportion of urban population living in inadequate housing, calculated based on households with net monthly expenditure on housing exceeding 30% of their total monthly income. \n Total urban population living in slums or informal settlements per country, territory and region, based on 4 out of 5 main household shelter deprivations defined by UN-Habitat as indicators of informality: lack of access to improved water, lack of access to improved sanitation, lack of sufficient living area and quality/durability of structure. Security of tenure is the fifth deprivation that is not included due to data limitations."
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/abcc290e8aa940f2a4deade7a338c6d6/data"
+        format: "xlsx"
+        resource_notes: "Proportion of urban population living in slums, informal settlements or inadequate housing."
+        filename: "SDG_11-1-1"
+        country_header: "Country or Territory Name2"
+        date_header:
+          - "Data Reference Year"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/39a704d00ef04adbaf2b6d430ffbd385/data"
+        format: "xlsx"
+        resource_notes: "Total urban population living in slums, informal settlements or inadequate housing by Country."
+        filename: "SDG_11-1-1_total_population_in_slums_and_informal_settlements"
+        country_header: "Country or Territory Name"
+        date_header:
+          - "Data Reference Year"
 
   basic_services:
     title: "Access to basic services in cities and urban areas"

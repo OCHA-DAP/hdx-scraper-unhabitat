@@ -46,6 +46,19 @@ datasets:
     resource_notes: "Proportion of urban population living in slums, informal settlements or inadequate housing."
     filename: "SDG_11-1-1"
 
+  basic_services:
+    title: "Access to basic services in cities and urban areas"
+    notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services, durable housing, sufficient living area and other basic services by urban area."
+    date_min: 1990
+    date_max: 2023
+    global: True
+    resources:
+      resource_1:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/ea183901dc4348749173989c5614a2c5/data"
+        format: "xlsx"
+        resource_notes: "Share of urban population with Improved Water, Sanitation and Other Urban Basic Services in Urban Areas, Selected Countries (Percent)"
+        filename: "Population_with_Improved_Water__Sanitation_and_Other_Urban_Basic_Services_in_Urban_Areas__Selected_Countries_(Percent)"
+
   # Everything below is not ready for production
   urban_environment:
     base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/78f842544a734b3fade0c871387abaa9/data"
@@ -58,24 +71,6 @@ datasets:
     notes: "Mean population exposure to particulate matter with a width of 2.5 microns or less in micrograms per cubic meter, presented by country and sub-national region levels. Data is per individual years in 2015, 2016, 2017, 2018 and 2019."
     resource_notes: "Air Quality: Mean Population Exposure to PM2.5 (Micrograms/m3), 2015 - 2019"
     filename: "Mean_Population_Exposure_to_PM2.5"
-
-  basic_services:
-    title: "Access to basic services in cities and urban areas"
-    notes: "Proportion of population with access to various basic services including improved water services, improved sanitation facilities, clean energy for lighting, energy for cooking, internet connection, telephone network, solid waste management services and other basic services by city and urban area"
-    date_min: 1990
-    date_max: 2019
-    global: True
-    resources:
-      resource_1:
-        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/c0b23da0cd5442ad8ed4d3a4a0065524/data"
-        format: "xlsx"
-        resource_notes: "Population with Improved Water, Improved Sanitation and Other Urban Basic Services in Cities, Selected Countries (Percent)"
-        filename: "Population_with_Improved_Water,_Improved_Sanitation_and_Other_Urban_Basic_Services_in_Cities,_Selected_Countries_(Percent)"
-      resource_2:
-        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/6e8ce4b4eda04f25b7a8af0e4281c950/data"
-        format: "xlsx"
-        resource_notes: "Population with Improved Water, Improved Sanitation and Other Urban Basic Services in Urban Areas, Selected Countries (Percent)"
-        filename: "Population_with_Improved_Water,_Sanitation_and_Other_Urban_Basic_Services_in_Urban_Areas,_Selected_Countries_(Percent)"
 
   social_inclusion:
     title: "Social inclusion indicators"

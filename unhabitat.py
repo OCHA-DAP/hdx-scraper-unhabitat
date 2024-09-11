@@ -37,8 +37,7 @@ class UNHabitat:
 
             if dataset_info.get("global"):
                 resource_infos = dataset_info["resources"]
-                for resource in resource_infos:
-                    resource_info = resource_infos[resource]
+                for resource, resource_info in resource_infos.items():
                     base_url = resource_info["base_url"]
                     file_path = self.retriever.download_file(
                         base_url,

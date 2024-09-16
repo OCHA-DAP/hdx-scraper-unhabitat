@@ -123,9 +123,10 @@ class UNHabitat:
             return dataset
 
         for resource, resource_info in resource_infos.items():
-            rows = self.data[dataset_name][resource]
-            self.generate_resource(dataset, resource_info, "csv", iso3=iso3, rows=rows)
-            self.generate_resource(dataset, resource_info, "xlsx", iso3=iso3, rows=rows)
+            rows = self.data[dataset_name].get(resource)
+            if rows:
+                self.generate_resource(dataset, resource_info, "csv", iso3=iso3, rows=rows)
+                self.generate_resource(dataset, resource_info, "xlsx", iso3=iso3, rows=rows)
         return dataset
 
     def generate_resource(self, dataset, resource_info, file_format, iso3=None, rows=None, filepath=None):

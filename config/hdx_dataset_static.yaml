@@ -6,6 +6,4 @@ data_update_frequency: "365"
 license_id: "hdx-pddl"
 caveats: "Read more at https://unhabitat.org/knowledge/data-and-analytics"
 subnational: "1"
-methodology: "Other"
-methodology_other: "See methodology at https://data.unhabitat.org/pages/guidance"
 private: False

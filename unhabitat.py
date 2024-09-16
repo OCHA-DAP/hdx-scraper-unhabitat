@@ -107,6 +107,12 @@ class UNHabitat:
             dataset.add_country_location(country_name)
         dataset.add_tags(self.configuration["tags"])
 
+        dataset["methodology"] = "Other"
+        if "methodology_other" in dataset_info:
+            dataset["methodology_other"] = dataset_info["methodology_other"]
+        else:
+            dataset["methodology_other"] = "See methodology at https://data.unhabitat.org/pages/guidance"
+
         resource_infos = dataset_info["resources"]
         filepaths = self.files.get(dataset_name)
         if filepaths:

@@ -49,6 +49,7 @@ class UNHabitat:
                 else:
                     headers, iterator = self.retriever.get_tabular_rows(
                         base_url,
+                        sheet=resource_info.get("sheet"),
                         headers=resource_info.get("header", 1),
                         format=resource_info.get("format"),
                         dict_form=True,
@@ -67,7 +68,7 @@ class UNHabitat:
                                 for date_header in resource_info["date_header"]:
                                     if row[date_header]:
                                         dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", row[date_header])
-                            else:
+                            elif "date_min" in resource_info:
                                 dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", resource_info["date_min"])
                                 dict_of_sets_add(self.dates, f"{dataset_name}_{iso3}", resource_info["date_max"])
 
@@ -76,7 +77,7 @@ class UNHabitat:
                             for date_header in resource_info["date_header"]:
                                 if row[date_header]:
                                     dict_of_sets_add(self.dates, f"{dataset_name}_world", row[date_header])
-                        else:
+                        elif "date_min" in resource_info:
                             dict_of_sets_add(self.dates, f"{dataset_name}_world", resource_info["date_min"])
                             dict_of_sets_add(self.dates, f"{dataset_name}_world", resource_info["date_max"])
 

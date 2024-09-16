@@ -2,7 +2,8 @@
 datasets:
   open_spaces:
     title: "Open spaces and green areas"
-    notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space)."
+    notes: "Data on a) Average share of urban areas allocated to streets and open public spaces, and b) Share of urban population with convenient access to an open public space (defined as share of urban population within 400 meters walking distance along the street network to an open public space). \nData on a) Average share of cities/urban areas in green areas (%), and b) Green area per capita (m2/person) for the periods 1990, 2000, 2010 and 2020. \n"
+    methodology_other: "The data referenced herein is calculated using urban boundaries defined using the Degree of Urbanization approach to defining cities and urban areas, which may be larger or smaller than the official municipality boundaries.  Within each city/urban area, the green areas are extracted using satellite imagery analysis for four time periods 1990, 2000, 2010 and 2020 based on the Normalized Difference Vegetation Index (NDVI), which assesses the level of greenness from satellite imagery. In this analysis, green areas are defined as parts of the city that are green for most parts of the year, and include individual trees, forests or forested areas, shrubs, perennial grasses and such other types of long-term vegetation. Waterbodies are not considered as green areas in this assessment. Since the stability the input data can be affected by climatic conditions such as long-term drought or rain, a median image was created over a three-year period, reducing thousands of images available for each point(pixel) to the most stable pixel. The median was used as opposed to the mean, because the median is less influenced by extremes (in this case extreme rains or drought). \nUnlike majority of the existing datasets which use basic NDVI thresholds, the most common of which include values of -1 to <0.2 for non-vegetated pixels, >=0.2 – 0.5 for low vegetation and >0.5 for high vegetation , the premise of this new analysis was that each city is unique, and using a constant NDVI threshold would work to the disadvantage of cities in drier regions. As such, NDVI thresholds were manually defined for each city per year by GIS experts at UN-Habitat. The analysis framework – including selection and mosaicking of images from the Landsat and Sentinel missions, pre-processing and NDVI analysis and thresholding was based on the Google Earth Engine platform. \nThe results from this analysis were then used to calculate two indicators: a) the average share of green area in city/urban area (percentage) and  b) the green are per capita (m2 per person). Population data used to calculate the green area per capita is sourced from GHS-Pop for 1990, 2000, 2010 and 2020. \nThe calculation of global and regional averages for the indicator on share of green area in city/urban areas are based on simple averages, while those on green area per capita are based on population weighted averages per analysis year."
     resources:
       resource_1:
         base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/fbb02b19d417497093418484448e3465/data"
@@ -12,6 +13,13 @@ datasets:
         country_header: "Country or Territory Name"
         date_header:
           - "Data Reference Year"
+      resource_2:
+        base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/cc37148f95304783a6ccfad8a9124a9d/data"
+        format: "xlsx"
+        sheet: "Data"
+        resource_notes: "Average share of green areas in cities and green area per capita"
+        filename: "share_of_green_areas_and_green_area_per_capita_in_cities_and_urban_areas_1990_2020"
+        country_header: "Country or Territory Name"
 
   urban_transport:
     title: "Urban transport"
@@ -49,7 +57,7 @@ datasets:
         base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/abcc290e8aa940f2a4deade7a338c6d6/data"
         format: "xlsx"
         resource_notes: "Proportion of urban population living in slums, informal settlements or inadequate housing."
-        filename: "SDG_11-1-1"
+        filename: "SDG_11-1-1_proportion_of_urban_population_in_slums_and_informal_settlements"
         country_header: "Country or Territory Name2"
         date_header:
           - "Data Reference Year"
@@ -73,7 +81,7 @@ datasets:
         base_url: "https://guo-un-habitat.maps.arcgis.com/sharing/rest/content/items/ea183901dc4348749173989c5614a2c5/data"
         format: "xlsx"
         resource_notes: "Share of urban population with Improved Water, Sanitation and Other Urban Basic Services in Urban Areas, Selected Countries (Percent)"
-        filename: "Population_with_Improved_Water__Sanitation_and_Other_Urban_Basic_Services_in_Urban_Areas__Selected_Countries_(Percent)"
+        filename: "population_with_improved_water_sanitation_and_other_urban_basic_services_in_urban_areas_(percent)"
 
   # Everything below is not ready for production
   urban_environment:

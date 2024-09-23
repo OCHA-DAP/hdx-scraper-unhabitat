@@ -36,7 +36,7 @@ def main(save: bool = False, use_saved: bool = False) -> None:
                 configuration = Configuration.read()
                 unhabitat = UNHabitat(configuration, retriever, folder, errors)
                 dataset_names = unhabitat.get_data(
-                    datasets=["open_spaces", "urban_transport", "spatial_growth_cities", "housing_slums"]
+                    datasets=["urban_transport", "spatial_growth_cities", "housing_slums", "basic_services"]
                 )
                 logger.info(f"Number of datasets to upload: {len(dataset_names)}")
 

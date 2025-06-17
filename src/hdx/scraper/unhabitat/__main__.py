@@ -13,10 +13,10 @@ from hdx.data.user import User
 from hdx.facades.infer_arguments import facade
 from hdx.utilities.downloader import Download
 from hdx.utilities.errors_onexit import ErrorsOnExit
-from hdx.utilities.path import tempdir_batch
+from hdx.utilities.path import temp_dir_batch
 from hdx.utilities.retriever import Retrieve
 
-from hdx.scraper.unhabitat import UNHabitat
+from hdx.scraper.unhabitat.unhabitat import UNHabitat
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +42,7 @@ def main(
     User.check_current_user_write_access("unhabitat-das")
 
     with ErrorsOnExit() as errors:
-        with tempdir_batch(_USER_AGENT_LOOKUP) as info:
+        with temp_dir_batch(_USER_AGENT_LOOKUP) as info:
             temp_dir = info["folder"]
             with Download() as downloader:
                 retriever = Retrieve(

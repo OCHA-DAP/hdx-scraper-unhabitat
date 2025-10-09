@@ -77,16 +77,12 @@ class TestUNHabitat:
         "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
         "all, by sex, age and persons with disabilities",
         "format": "csv",
-        "resource_type": "file.upload",
-        "url_type": "upload",
     }
     resource_open_spaces_xlsx = {
         "name": "SDG_11-7-1_AFG (xlsx)",
         "description": "SDG 11.7.1: Average share of the built-up area of cities that is open space for public use for "
         "all, by sex, age and persons with disabilities",
         "format": "xlsx",
-        "resource_type": "file.upload",
-        "url_type": "upload",
     }
 
     def test_unhabitat(self, configuration, fixtures_dir, input_dir, config_dir):

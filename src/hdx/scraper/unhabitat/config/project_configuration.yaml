@@ -30,7 +30,7 @@ datasets:
         format: "xlsx"
         resource_notes: "SDG 11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities"
         filename: "SDG_11-2-1"
-        country_header: "Country or Territory Name"
+        country_header: "GeoAreaName"
         date_header:
           - "Data Reference Year"
 

@@ -18,7 +18,7 @@ class TestUNHabitat:
         "urban population with convenient access to an open public space (defined as share of urban "
         "population within 400 meters walking distance along the street network to an open public space). \n"
         "Data on a) Average share of cities/urban areas in green areas (%), and b) Green area per capita "
-        "(m2/person) for the periods 1990, 2000, 2010 and 2020.",
+        "(m2/person) for the periods 1990, 2000, 2010, 2020 and 2025.",
         "groups": [{"name": "afg"}],
         "tags": [
             {
@@ -41,8 +41,8 @@ class TestUNHabitat:
         "methodology_other": "The data referenced herein is calculated using urban boundaries defined using the Degree "
         "of Urbanization approach to defining cities and urban areas, which may be larger or "
         "smaller than the official municipality boundaries.  Within each city/urban area, the "
-        "green areas are extracted using satellite imagery analysis for four time periods 1990, "
-        "2000, 2010 and 2020 based on the Normalized Difference Vegetation Index (NDVI), which "
+        "green areas are extracted using satellite imagery analysis for five time periods 1990, "
+        "2000, 2010, 2020 and 2025 based on the Normalized Difference Vegetation Index (NDVI), which "
         "assesses the level of greenness from satellite imagery. In this analysis, green areas "
         "are defined as parts of the city that are green for most parts of the year, and include "
         "individual trees, forests or forested areas, shrubs, perennial grasses and such other "
@@ -63,7 +63,7 @@ class TestUNHabitat:
         "The results from this analysis were then used to calculate two indicators: a) the "
         "average share of green area in city/urban area (percentage) and  b) the green are per "
         "capita (m2 per person). Population data used to calculate the green area per capita is "
-        "sourced from GHS-Pop for 1990, 2000, 2010 and 2020. \n"
+        "sourced from GHS-Pop for 1990, 2000, 2010, 2020 and 2025. \n"
         "The calculation of global and regional averages for the indicator on share of green area "
         "in city/urban areas are based on simple averages, while those on green area per capita "
         "are based on population weighted averages per analysis year.",
